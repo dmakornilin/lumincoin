@@ -1,0 +1,175 @@
+<div class="container px-4 py-4">
+    <div class="pricing-header p-3 pb-md-4 mx-auto menu-font-color">
+        <h1 class="display-4 fw-normal text-primary-emphasis">Доходы и расходы</h1>
+    </div>
+
+    <div class="mb-5 ">
+        <div class="d-flex ">
+            <div>
+                <a href="/finance-pl/add-income" class="btn btn-block btn-success ">
+                    Создать доход
+                </a>
+            </div>
+            <div class="mx-2">
+                <a href="/finance-pl/add-cost" class="btn btn-block btn-danger">
+                    Создать расход
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <button type="button" class="btn border border-secondary navbar-button-width btn-secondary">
+                            Сегодня
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <span class="navbar-menu-left-gap"></span>
+                        <button type="button" class="btn border border-secondary navbar-button-width ">Неделя</button>
+                    </li>
+                    <li class="nav-item">
+                        <span class="navbar-menu-left-gap"></span>
+                        <button type="button" class="btn border border-secondary navbar-button-width ">Месяц</button>
+                    </li>
+                    <li class="nav-item">
+                        <span class="navbar-menu-left-gap"></span>
+                        <button type="button" class="btn border border-secondary navbar-button-width ">Год</button>
+                    </li>
+                    <li class="nav-item">
+                        <span class="navbar-menu-left-gap"></span>
+                        <button type="button" class="btn border border-secondary navbar-button-width ">Все</button>
+                    </li>
+                    <li>
+                        <form class="d-flex">
+                            <span class="navbar-menu-left-gap"></span>
+                            <div class="px-2 pt-2">c</div>
+                            <div><input type="date" class="form-control" placeholder="Дата" aria-label="Search"></div>
+                            <div class="px-2 pt-2">по</div>
+                            <input class="form-control" type="date" placeholder="Дата">
+                        </form>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="mt-4" id="general-ledger">
+        <div class="row">
+            <hr>
+            <div class="col">
+                <h5 class="menu-font-color">№ операции</h5>
+            </div>
+            <div class="col">
+                <h5 class="menu-font-color">Тип</h5>
+            </div>
+            <div class="col">
+                <h5 class="menu-font-color">Категория</h5>
+            </div>
+            <div class="col">
+                <h5 class="menu-font-color">Сумма</h5>
+            </div>
+            <div class="col">
+                <h5 class="menu-font-color">Дата</h5>
+            </div>
+            <div class="col">
+                <h5 class="menu-font-color">Комментарий</h5>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+        <div class="row">
+            <hr>
+            <div class="col">
+                <span class="menu-font-color">1</span>
+            </div>
+            <div class="col">
+                <span class="text-success">доход</span>
+            </div>
+            <div class="col">
+                зарплата
+            </div>
+            <div class="col">
+                500$
+            </div>
+            <div class="col">
+                11.09.2022
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <button type="button"  data-bs-toggle="modal" class="border-0 bg-transparent" value="1"
+                        data-bs-target="#removeTransact">
+                    <ia class="fa fa-trash"></ia>
+                </button>
+                <a href="/finance-pl/edit-income" class="mx-2"> <ia class="fa fa-pen"></ia></a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <span class="menu-font-color">2</span>
+            </div>
+            <div class="col">
+                <span class="text-danger">расход</span>
+            </div>
+            <div class="col">
+                жильё
+            </div>
+            <div class="col">
+                2500$
+            </div>
+            <div class="col">
+                12.09.2022
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <button type="button"  data-bs-toggle="modal" class="border-0 bg-transparent" value="2"
+                        data-bs-target="#removeTransact">
+                    <ia class="fa fa-trash"></ia>
+                </button>
+                <a href="/finance-pl/edit-cost" class="mx-2"> <ia class="fa fa-pen"></ia></a>
+            </div>
+        </div>
+        <hr>
+
+
+
+    </div>
+</div>
+
+
+<div class="modal modal fade" id="removeTransact" tabindex="-1" aria-labelledby="removeTransactLabel"
+     aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body  pt-5">
+                <h5 class="text-group-color">Вы действительно хотите удалить операцию?</h5>
+            </div>
+            <div class="container text-center pb-5">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Да удалить</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-danger">Не удалять</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

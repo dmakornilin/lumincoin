@@ -1,0 +1,55 @@
+<div class="container px-4 py-4">
+    <div class="pricing-header py-3 pb-md-4 mx-auto menu-font-color">
+        <h1 class="display-4 fw-normal text-primary-emphasis">Редактирование дохода</h1>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-sm-6 ">
+                <button class="btn btn-block btn-success w-100">
+                    Доход
+                </button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-6">
+                <select class="form-select" id="categSelect">
+                    <option value="1">Депозиты</option>
+                    <option value="2" selected>Зарплата</option>
+                    <option value="3">Сбережения</option>
+                    <option value="4">Инвестиции</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <input type="number" id="amountInput" placeholder="Сумма в $...">
+                <span id="amountInput-error" class="error invalid-feedback">Заполните сумму</span>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <input type="date" id="dateInput">11.09.2022
+                <span id="dateInput-error" class="error invalid-feedback">Заполните дату</span>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-sm-6 ">
+                <textarea class="form-control" id="descriptionInput" placeholder="Комментарий"></textarea>
+                <span id="descriptionInput-error" class="error invalid-feedback">Заполните комментарий</span>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="d-flex ">
+                <button class="btn btn-block btn-success">Сохранить</button>
+                <a href="/finance-pl" class="btn btn-block btn-danger mx-2">
+                    Отмена
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,60 @@
+import config from "../config/config.js";
+
+export class CommonUtils {
+
+    static getLevelHtml(level) {
+        let levelHtml = null;
+        switch (level) {
+            case config.freelancerLevels.junior:
+                levelHtml = '<span class="badge badge-info">Junior</span>';
+                break;
+            case config.freelancerLevels.middle:
+                levelHtml = '<span class="badge badge-warning">Middle</span>'
+                break;
+            case config.freelancerLevels.senior:
+                levelHtml = '<span class="badge badge-success">Senior</span>';
+                break;
+            default:
+                levelHtml = '<span class="badge badge-secondary">Unknown</span>';
+        }
+        return levelHtml;
+    }
+
+    static getStatusInfo(status) {
+        const info = {name: '', color: '', icon: ''};
+        switch (status) {
+            case config.orderStatuses.new: {
+                info.color = 'secondary';
+                info.name = 'Новый';
+                info.icon = 'star'
+            }
+                break;
+            case config.orderStatuses.confirmed: {
+                info.color = 'info';
+                info.name = 'Подтвержден';
+                info.icon = 'eye'
+            }
+                break;
+            case config.orderStatuses.success: {
+                info.color = 'success';
+                info.name = 'Выполнен';
+                info.icon = 'check'
+            }
+                break;
+            case config.orderStatuses.canceled: {
+                info.color = 'danger';
+                info.name = 'Отменен';
+                info.icon = 'times'
+            }
+                break;
+            default: {
+                info.color = 'secondary';
+                info.name = 'Неизвестно';
+                info.icon = 'times'
+            }
+        }
+        return info;
+    }
+
+}
+

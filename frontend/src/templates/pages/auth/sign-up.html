@@ -1,0 +1,102 @@
+<div class="vh-100 d-flex align-items-center justify-content-center">
+    <div class="d-flex text-center">
+        <div class="login-page-width">
+            <div class="login-logo">
+                <a href="/login"
+                   class="d-flex align-items-center mx-auto mb-4 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <img src="./images/logo.png" alt="logo" class="mx-auto"/>
+                </a>
+            </div>
+
+            <div class="card-body login-card-body">
+                <h1 class="h3 mb-3 fw-bold"><span class="menu-font-color">Создайте аккаунт</span></h1>
+
+                <div id="login-common-error" class="error invalid-feedback text-center mb-3">
+                    Неправильный email или пароль.
+                </div>
+
+                <form>
+                    <div class="input-group mb-2 w-100">
+                        <div class="input-group-append d-flex w-100">
+                            <div class="input-group-text rounded-0">
+                                <span class="fas fa-regular fa-user "></span>
+                            </div>
+                            <input type="text" class="form-control w-100 rounded-0" placeholder="Имя"
+                                   id="login-name">
+                            <!--                     Валидация   is-invalid -->
+                            <span id="login-name-error"
+                                  class="error invalid-feedback">Введите имя</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-2 w-100">
+                        <div class="input-group-append d-flex w-100">
+                            <div class="input-group-text rounded-0">
+                                <span class="fas fa-regular fa-user "></span>
+                            </div>
+                            <input type="text" class="form-control w-100 rounded-0 " placeholder="Фамилия"
+                                   id="login-last-name">
+                            <!--                     Валидация   is-invalid -->
+                            <span id="login-last-name-error"
+                                  class="error invalid-feedback">Введите фамилию</span>
+                        </div>
+                    </div>
+
+
+                    <div class="input-group mb-2 w-100">
+                        <div class="input-group-append d-flex w-100">
+                            <div class="input-group-text rounded-0">
+                                <span class="fas fa-regular fa-envelope-open "></span>
+                            </div>
+                            <input type="email" class="form-control w-100 rounded-0 " placeholder="Email"
+                                   id="login-email">
+                            <!--                     Валидация   is-invalid -->
+                            <span id="login-email-error"
+                                  class="error invalid-feedback ">Введите E-mail</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-2 w-100">
+                        <div class="input-group-append d-flex w-100">
+                            <div class="input-group-text rounded-0">
+                                <span class="fas fa-regular fa-lock "></span>
+                            </div>
+                            <input type="password" class="form-control w-100 rounded-0 " placeholder="Пароль"
+                                   id="login-password">
+                            <span id="login-password-error"
+                                  class="error invalid-feedback">Заполните пароль</span>
+                            <div class="input-group-append">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group d-flex w-100">
+                        <div class="input-group-append d-flex w-100">
+                            <div class="input-group-text rounded-0">
+                                <span class="fas fa-regular fa-lock "></span>
+                            </div>
+                            <input type="password" class="form-control w-100 rounded-0 "
+                                   placeholder="Подтверждение пароля"
+                                   id="login-password-confirm">
+                            <span id="login-password-confirm-error"
+                                  class="error invalid-feedback">пароли должны совпадать</span>
+                            <div class="input-group-append">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center mb-6 mt-4">
+
+                <!--                <button class="btn btn-block btn-primary w-100 ">-->
+                <!--                    &lt;!&ndash;            <i class="fab fa-facebook mr-2"></i>&ndash;&gt;-->
+                <!--                    Войти-->
+                <!--                <button>-->
+                <div>
+                    <span class="btn btn-block btn-primary w-100" id="login-process-button">Войти</span>
+                </div>
+                <div class="d-flex mt-1">
+                    <span>Уже есть аккаунт?</span><a href="/login" class="px-2">Войдите в систему</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
