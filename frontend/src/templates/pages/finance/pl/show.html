@@ -63,92 +63,57 @@
 
     </nav>
 
-    <div class="mt-4" id="general-ledger">
-        <div class="row">
-            <hr>
-            <div class="col">
-                <h5 class="menu-font-color">№ операции</h5>
-            </div>
-            <div class="col">
-                <h5 class="menu-font-color">Тип</h5>
-            </div>
-            <div class="col">
-                <h5 class="menu-font-color">Категория</h5>
-            </div>
-            <div class="col">
-                <h5 class="menu-font-color">Сумма</h5>
-            </div>
-            <div class="col">
-                <h5 class="menu-font-color">Дата</h5>
-            </div>
-            <div class="col">
-                <h5 class="menu-font-color">Комментарий</h5>
-            </div>
-            <div class="col">
-
-            </div>
-        </div>
-        <div class="row">
-            <hr>
-            <div class="col">
-                <span class="menu-font-color">1</span>
-            </div>
-            <div class="col">
-                <span class="text-success">доход</span>
-            </div>
-            <div class="col">
-                зарплата
-            </div>
-            <div class="col">
-                500$
-            </div>
-            <div class="col">
-                11.09.2022
-            </div>
-            <div class="col">
-
-            </div>
-            <div class="col">
-                <button type="button"  data-bs-toggle="modal" class="border-0 bg-transparent" value="1"
-                        data-bs-target="#removeTransact">
-                    <ia class="fa fa-trash"></ia>
-                </button>
-                <a href="/finance-pl/edit-income" class="mx-2"> <ia class="fa fa-pen"></ia></a>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col">
-                <span class="menu-font-color">2</span>
-            </div>
-            <div class="col">
-                <span class="text-danger">расход</span>
-            </div>
-            <div class="col">
-                жильё
-            </div>
-            <div class="col">
-                2500$
-            </div>
-            <div class="col">
-                12.09.2022
-            </div>
-            <div class="col">
-
-            </div>
-            <div class="col">
-                <button type="button"  data-bs-toggle="modal" class="border-0 bg-transparent" value="2"
-                        data-bs-target="#removeTransact">
-                    <ia class="fa fa-trash"></ia>
-                </button>
-                <a href="/finance-pl/edit-cost" class="mx-2"> <ia class="fa fa-pen"></ia></a>
-            </div>
-        </div>
-        <hr>
-
-
-
-    </div>
+    <table class="table table-hover border-top text-center">
+        <thead>
+        <tr>
+            <th class="col-2"><h5 class="menu-font-color">№ операции</h5></th>
+            <th class="col-2"><h5 class="menu-font-color">Тип</h5></th>
+            <th class="col-2"><h5 class="menu-font-color">Категория</h5></th>
+            <th class="col-2"><h5 class="menu-font-color">Сумма</h5></th>
+            <th class="col-2"><h5 class="menu-font-color">Дата</h5></th>
+            <th class="col-5"><h5 class="menu-font-color">Комментарий</h5></th>
+            <th class="col-2"></th>
+        </tr>
+        </thead>
+        <tr>
+            <td><span class="menu-font-color">1</span></td>
+            <td><span class="text-success">доход</span></td>
+            <td>зарплата</td>
+            <td>2500$</td>
+            <td>12.09.2022</td>
+            <td></td>
+            <td>
+                <div class="d-flex">
+                    <button type="button" data-bs-toggle="modal" class="border-0 bg-transparent" value="1"
+                            data-bs-target="#removeTransact">
+                        <ia class="fa fa-trash"></ia>
+                    </button>
+                    <a href="/finance-pl/edit-income" class="mx-2">
+                        <ia class="fa fa-pencil"></ia>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="menu-font-color">2</span></td>
+            <td><span class="text-danger">расход</span></td>
+            <td>жильё</td>
+            <td>500$</td>
+            <td>11.09.2022</td>
+            <td></td>
+            <td>
+                <div class="d-flex">
+                    <button type="button" data-bs-toggle="modal" class="border-0 bg-transparent" value="2"
+                            data-bs-target="#removeTransact">
+                        <ia class="fa fa-trash"></ia>
+                    </button>
+                    <a href="/finance-pl/edit-cost" class="mx-2">
+                        <ia class="fa fa-pencil"></ia>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
 
 

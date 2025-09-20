@@ -5,9 +5,10 @@
     <div class="card-body">
         <div class="row mb-3">
             <div class="col-sm-6 ">
-                <button class="btn btn-block btn-danger w-100">
-                    Расход
-                </button>
+                <select class="form-select">
+                    <option value="1" selected>Расход</option>
+                </select>
+
             </div>
         </div>
         <div class="row mb-3">
@@ -28,14 +29,14 @@
 
         <div class="row mb-3">
             <div class="col-sm-9">
-                <input type="number" id="amountInput" placeholder="Сумма в $...">
+                <input type="number" id="amountInput" value="500">
                 <span id="amountInput-error" class="error invalid-feedback">Заполните сумму</span>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-sm-9">
-                <input type="date" id="dateInput">12.09.2022
+                <input type="date" id="dateInput" value="2022-09-12" >
                 <span id="dateInput-error" class="error invalid-feedback">Заполните дату</span>
             </div>
         </div>

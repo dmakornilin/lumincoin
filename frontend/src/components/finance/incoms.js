@@ -6,6 +6,8 @@ export class Incoms {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
     }
+
+
 }
 
 
