@@ -5,9 +5,9 @@ export class Logout {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
 
-        if (!AuthUtils.getAuthInfo(AuthUtils.accessTokenKey) || !AuthUtils.getAuthInfo(AuthUtils.refreshTokenKey)) {
-            return this.openNewRoute('/');
-        }
+        // if (!AuthUtils.getAuthInfo(AuthUtils.accessTokenKey) || !AuthUtils.getAuthInfo(AuthUtils.refreshTokenKey)) {
+        //     return this.openNewRoute('/');
+        // }
 
         this.logout().then();
     }

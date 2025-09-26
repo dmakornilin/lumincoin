@@ -43,6 +43,7 @@ module.exports = {
                 {from: "./src/plugins/font-awesome/css", to: "css"},
                 {from: "./src/plugins/fonts", to: "css"},
                 {from: "./node_modules/bootstrap/dist/css/bootstrap.css", to: "css"},
+                {from: "./node_modules/bootstrap-icons/font/bootstrap-icons.min.css", to: "css"},
                 {from: "./node_modules/icheck-bootstrap/icheck-bootstrap.css", to: "css"},
                 {from: "./node_modules/bootstrap/dist/js/bootstrap.js", to: "js"},
                 {from: "./node_modules/bootstrap/dist/js/bootstrap.bundle.js", to: "js"},

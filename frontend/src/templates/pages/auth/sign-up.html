@@ -16,79 +16,86 @@
                 </div>
 
                 <form>
+
                     <div class="input-group mb-2 w-100">
-                        <div class="input-group-append d-flex w-100">
-                            <div class="input-group-text rounded-0">
-                                <span class="fas fa-regular fa-user "></span>
-                            </div>
-                            <input type="text" class="form-control w-100 rounded-0" placeholder="Имя"
-                                   id="login-name">
-                            <!--                     Валидация   is-invalid -->
+                        <div class="input-group">
+                                    <span class="input-group-text" id="basic-name">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-person"
+                         viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                    </svg>
+                                    </span>
+                            <input type="text" class="form-control" placeholder="Имя" id="login-name"
+                                   aria-label="Input group example" aria-describedby="basic-name">
                             <span id="login-name-error"
                                   class="error invalid-feedback">Введите имя</span>
                         </div>
                     </div>
                     <div class="input-group mb-2 w-100">
-                        <div class="input-group-append d-flex w-100">
-                            <div class="input-group-text rounded-0">
-                                <span class="fas fa-regular fa-user "></span>
-                            </div>
-                            <input type="text" class="form-control w-100 rounded-0 " placeholder="Фамилия"
-                                   id="login-last-name">
-                            <!--                     Валидация   is-invalid -->
+                        <div class="input-group">
+                                    <span class="input-group-text" id="basic-last-name">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-person"
+                         viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                    </svg>
+                                    </span>
+                            <input type="text" class="form-control" placeholder="Фамилия" id="login-last-name"
+                                   aria-label="Input group example" aria-describedby="basic-last-name">
                             <span id="login-last-name-error"
                                   class="error invalid-feedback">Введите фамилию</span>
                         </div>
                     </div>
-
-
                     <div class="input-group mb-2 w-100">
-                        <div class="input-group-append d-flex w-100">
-                            <div class="input-group-text rounded-0">
-                                <span class="fas fa-regular fa-envelope-open "></span>
-                            </div>
-                            <input type="email" class="form-control w-100 rounded-0 " placeholder="Email"
-                                   id="login-email">
-                            <!--                     Валидация   is-invalid -->
+                        <div class="input-group">
+                <span class="input-group-text" id="basic-email">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                       class="bi bi-envelope-open" viewBox="0 0 16 16">
+                      <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882zM15 7.383l-4.778 2.867L15 13.117zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765z"></path>
+</svg>
+                </span>
+                            <input type="email" class="form-control" placeholder="Электронная почта" id="login-email"
+                                   aria-label="Input group example" aria-describedby="basic-email">
                             <span id="login-email-error"
                                   class="error invalid-feedback ">Введите E-mail</span>
+
                         </div>
                     </div>
                     <div class="input-group mb-2 w-100">
-                        <div class="input-group-append d-flex w-100">
-                            <div class="input-group-text rounded-0">
-                                <span class="fas fa-regular fa-lock "></span>
-                            </div>
-                            <input type="password" class="form-control w-100 rounded-0 " placeholder="Пароль"
-                                   id="login-password">
+                        <div class="input-group">
+                                    <span class="input-group-text" id="basic-password">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-lock"
+                         viewBox="0 0 16 16">
+                      <path fill-rule="evenodd"
+                            d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4M4.5 7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 7zM8 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"/>
+                    </svg>                </span>
+                            <input type="password" class="form-control" placeholder="Пароль"
+                                   id="login-password" aria-describedby="basic-password">
                             <span id="login-password-error"
-                                  class="error invalid-feedback">Заполните пароль</span>
-                            <div class="input-group-append">
-                            </div>
+                                  class="error invalid-feedback">Неверный пароль</span>
                         </div>
                     </div>
-                    <div class="input-group d-flex w-100">
-                        <div class="input-group-append d-flex w-100">
-                            <div class="input-group-text rounded-0">
-                                <span class="fas fa-regular fa-lock "></span>
-                            </div>
-                            <input type="password" class="form-control w-100 rounded-0 "
-                                   placeholder="Подтверждение пароля"
-                                   id="login-password-confirm">
+                    <div class="input-group mb-2 w-100">
+                        <div class="input-group">
+                                    <span class="input-group-text" id="basic-confirm-password">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-lock"
+                         viewBox="0 0 16 16">
+                      <path fill-rule="evenodd"
+                            d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4M4.5 7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 7zM8 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"/>
+                    </svg>                </span>
+                            <input type="password" class="form-control" placeholder="Подтверждение пароля"
+                                   id="login-password-confirm" aria-describedby="basic-confirm-password">
                             <span id="login-password-confirm-error"
                                   class="error invalid-feedback">пароли должны совпадать</span>
-                            <div class="input-group-append">
-                            </div>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="text-center mb-6 mt-4">
 
-                <!--                <button class="btn btn-block btn-primary w-100 ">-->
-                <!--                    &lt;!&ndash;            <i class="fab fa-facebook mr-2"></i>&ndash;&gt;-->
-                <!--                    Войти-->
-                <!--                <button>-->
                 <div>
                     <span class="btn btn-block btn-primary w-100" id="login-process-button">Войти</span>
                 </div>
