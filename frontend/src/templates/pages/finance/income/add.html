@@ -1,22 +1,22 @@
 <div class="container px-4 py-4">
     <div class="pricing-header py-3 pb-md-4 mx-auto menu-font-color">
-        <h1 class="display-4 fw-normal text-primary-emphasis">Создание категории доходов</h1>
+        <h1>Создание категории доходов</h1>
     </div>
     <form>
         <div class="row">
             <div class="col-6">
                 <div class="card mb-3  border-0">
-                        <div class="input-group-append d-flex w-100">
-                            <input type="text" class="form-control rounded-0" placeholder="Название"
-                                   id="add-name">
-                        </div>
+                    <div class="input-group-append w-100">
+                        <input type="text" class="form-control rounded-0" placeholder="Название"
+                               id="add-name">
                         <span id="add-name-error"
                               class="error invalid-feedback">Введите название категории</span>
+                    </div>
                 </div>
                 <div class="d-flex">
                     <div class="row">
                         <div class="col">
-                            <button type="button" class="btn btn-success" >Создать</button>
+                            <button type="button" class="btn btn-success" id="create-category">Создать</button>
                         </div>
                         <div class="col">
                             <a href="/incoms" class="btn btn-block btn-danger ">

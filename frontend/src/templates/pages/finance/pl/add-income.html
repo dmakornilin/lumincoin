@@ -1,6 +1,6 @@
 <div class="container px-4 py-4">
     <div class="pricing-header py-3 pb-md-4 mx-auto menu-font-color">
-        <h1 class="display-4 fw-normal text-primary-emphasis">Создание дохода</h1>
+        <h1>Создание дохода</h1>
     </div>
     <div class="card-body">
         <div class="row mb-3">
@@ -12,24 +12,26 @@
         </div>
         <div class="row mb-3">
             <div class="col-sm-6">
-                <select class="form-select" id="categSelect">
+                <select class="form-select" id="categ-select">
                     <option value="1" selected>Депозиты</option>
                     <option value="2">Зарплата</option>
                     <option value="3">Сбережения</option>
                     <option value="4">Инвестиции</option>
                 </select>
+                <span id="categ-select-error"
+                      class="error invalid-feedback ">Выберите категорию дохода</span>
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col-sm-9">
-                <input type="number" id="amountInput" placeholder="Сумма в $...">
+            <div class="col-sm-6">
+                <input type="number" class="form-control"  id="amountInput" placeholder="Сумма в $...">
                 <span id="amountInput-error" class="error invalid-feedback">Заполните сумму</span>
             </div>
         </div>
 
         <div class="row mb-3">
-            <div class="col-sm-9">
-                <input type="date" id="dateInput">
+            <div class="col-sm-6">
+                <input type="date" class="form-control"  id="dateInput">
                 <span id="dateInput-error" class="error invalid-feedback">Заполните дату</span>
             </div>
         </div>
@@ -39,10 +41,9 @@
                 <span id="descriptionInput-error" class="error invalid-feedback">Заполните комментарий</span>
             </div>
         </div>
-
         <div class="row mt-3">
             <div class="d-flex ">
-                <button class="btn btn-block btn-success">Создать</button>
+                <button class="btn btn-block btn-success" id="create">Создать</button>
                 <a href="/finance-pl" class="btn btn-block btn-danger mx-2">
                     Отмена
                 </a>

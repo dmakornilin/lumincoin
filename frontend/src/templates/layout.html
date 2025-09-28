@@ -1,6 +1,6 @@
 <div class="layout d-flex">
     <aside class="layout-sidebar-full">
-        <div class="layout-sidebar d-flex flex-column vh-100 justify-content-between right-vertical-line bottom-otstup-20">
+        <div class="layout-sidebar d-flex flex-column wysota-100 justify-content-between right-vertical-line bottom-otstup-20">
             <div>
                 <div class="layout-logo border-bottom mt-4 pb-4">
                     <a href="/login"
@@ -11,37 +11,51 @@
                 <div class="layout-menu mt-4 ms-3">
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item mb-1">
-                            <a href="/" class="nav-link " aria-current="page">
+                            <div class="d-flex">
+                            <a href="/" class="nav-link " aria-current="page" id="start-choice">
                                 <i class="nav-icon fas fa-home me-2"></i>
                                 Главная
                             </a>
+                                <div class="otstup12"></div>
+                            </div>
                         </li>
-                        <li class="nav-item  mb-1">
-                            <a href="/finance-pl" class="nav-link " aria-current="page">
-                                <i class="fa-solid fa-money-bills me-2"></i>
-                                Доходы & расходы
-                            </a>
+                        <li class="nav-item  mb-1 ">
+                            <div class="d-flex">
+                                <a href="/finance-pl" class="nav-link  navbar-button-width" id="finance-pl">
+                                    <!-- active     aria-current="page"-->
+                                    <i class="fa-solid fa-money-bills me-2 "></i>
+                                    Доходы & расходы
+                                </a>
+                                <div class="otstup12"></div>
+                            </div>
+
                         </li>
                         <li class="nav-item" id="nav-item-last">
                             <div class="my-accordion">
-                                <div class="accordion accordion-flush" id="menu-category">
+                                <div class="accordion accordion-flush rounded-2 " id="menu-category">
+                                    <!--                                    border-ramka                                    -->
                                     <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed rounded-2 border-0" type="button"
+                                        <button class="accordion-button collapsed rounded-2" type="button"
                                                 data-bs-toggle="collapse"
-                                                data-bs-target="#item-1">
+                                                data-bs-target="#item-1"
+                                                id="income-nav-bottom"
+                                        >
                                             <a href="javascript:void(0)" class="header-accordion-font">Категории
                                                 <i class="chevron fa-solid fa-chevron-right header-category-arrow"></i>
                                             </a>
                                         </button>
                                     </h2>
-                                    <div id="item-1" class="accordion-collapse collapse"
+                                    <!--                                         collapse-->
+                                    <div id="item-1" class="accordion-collapse"
                                          data-bs-parent="#menu-category">
-                                        <div class="accordion-body no-padding-x ">
-                                            <div class="list-group no-padding-x" id="list-tab" role="tablist">
-                                                <a class="list-group-item list-group-item-action font-active-color" id="list-incoms"
+                                        <div class="accordion-body no-padding-x no-padding-bottom ">
+                                            <div class="list-group no-padding-x rounded-0" id="list-tab" role="tablist">
+                                                <a class="list-group-item list-group-item-action font-active-color"
+                                                   id="list-incoms"
                                                    data-bs-toggle="list" href="/incoms" role="tab"
                                                    aria-controls="list-incoms">Доходы</a>
-                                                <a class="list-group-item list-group-item-action font-active-color" id="list-costs"
+                                                <a class="list-group-item list-group-item-action font-active-color"
+                                                   id="list-costs"
                                                    data-bs-toggle="list" href="/costs" role="tab"
                                                    aria-controls="list-costs">Расходы</a>
                                             </div>
@@ -50,35 +64,10 @@
                                 </div>
                             </div>
                         </li>
-                        <!--                        <li class="nav-item" id="nav-item-last">-->
-                        <!--                            <button type="button" class="border-0 p-0 bg-transparent">-->
-                        <!--                                <a href="javascript:void(0)"-->
-                        <!--                                   class="nav-link btn btn-toggle collapsed inline-flex align-items-start align-items-baseline"-->
-                        <!--                                   data-bs-toggle="collapse"-->
-                        <!--                                   data-bs-target="#categories-collapse" aria-expanded="false" id="cat-btn">-->
-                        <!--                                    Категории<i class="chevron fa-solid fa-chevron-right"></i>-->
-                        <!--                                </a>-->
-                        <!--                                <div class="nav-item-collapse collapse" id="categories-collapse">-->
-                        <!--                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-0 small align-self-start">-->
-                        <!--                                        <li>-->
-                        <!--                                            <a href="/incoms"-->
-                        <!--                                               class="nav-link m-0 d-flex align-items-start align-items-baseline">Доходы</a>-->
-                        <!--                                        </li>-->
-                        <!--                                        <li>-->
-                        <!--                                            <a href="/costs"-->
-                        <!--                                               class="nav-link d-flex align-items-start align-items-baseline"-->
-                        <!--                                               id="nav-link-expenses">Расходы</a>-->
-                        <!--                                        </li>-->
-                        <!--                                    </ul>-->
-                        <!--                                </div>-->
-                        <!--                            </button>-->
-                        <!--                        </li>-->
-
-
                     </ul>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mt-3">
                 <div class="layout-menu-balance border-bottom mb-3 ">
                     <p>Баланс:<span class="ms-2" id="balance-amount">500$</span></p>
                 </div>

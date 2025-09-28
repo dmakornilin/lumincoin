@@ -17,7 +17,7 @@ export class Login {
         this.validations = [
             {element: this.emailElement, options: {pattern: ValidationUtils.regularPatterns().email}},
             {element: this.passwordElement, options: {pattern: ValidationUtils.regularPatterns().password}}
-        ]
+        ];
 
         document.getElementById("login-process-button").addEventListener("click", this.login.bind(this));
     }
