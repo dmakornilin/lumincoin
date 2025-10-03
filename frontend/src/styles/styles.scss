@@ -1,6 +1,11 @@
 
 body {
   max-width: 1920px;
+  overflow: hidden;
+}
+.content-wrapper{
+  height: 100vh;
+  overflow: auto;
 }
 
 .leftnav-border-color {

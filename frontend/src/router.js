@@ -199,6 +199,13 @@ export class Router {
         if (this.startChoiceElement) {
             this.startChoiceElement.classList.remove('active');
         }
+
+        if (this.incomeNavBottom) {
+            this.incomeNavBottom.classList.remove('rounded-2');
+            this.incomeNavBottom.classList.remove('rounded-0');
+            this.incomeNavBottom.classList.add('rounded-2');
+
+        }
     }
 
     initEvents() {
