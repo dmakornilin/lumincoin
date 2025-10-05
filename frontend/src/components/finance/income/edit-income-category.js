@@ -1,21 +1,28 @@
 import {ValidationUtils} from "../../../utils/validation-utils";
+import {AuthUtils} from "../../../utils/auth-util";
 
 export class EditIncomeCategory {
-    constructor(openNewRoute, navElement, accElement, navChoice, navBottom) {
+    constructor(openNewRoute, navElement, accElement, navChoice, navBottom, params) {
         this.openNewRoute = openNewRoute;
-        this.navElement = navElement;
-        this.accElement = accElement;
-        this.navChoice = navChoice;
-        this.navBottom = navBottom;
-        this.initial();
+        if (!AuthUtils.isLogin()) {
+            this.openNewRoute('/login');
+        } else {
+            this.navElement = navElement;
+            this.accElement = accElement;
+            this.navChoice = navChoice;
+            this.navBottom = navBottom;
+            this.params = params;
+              // console.log(this.params);
+            this.initial();
+            this.CategoryName = document.getElementById("add-name");
 
-        this.CategoryName = document.getElementById("add-name");
+            this.CategoryName.value = this.params.incomeCategory;
 
-        this.validations = [
-            {element: this.CategoryName}
-        ]
-
-        document.getElementById("update-category").addEventListener("click", this.addCategory.bind(this));
+            this.validations = [
+                {element: this.CategoryName}
+            ]
+            document.getElementById("update-category").addEventListener("click", this.addCategory.bind(this));
+        }
     }
 
     async addCategory() {

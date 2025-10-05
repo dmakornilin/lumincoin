@@ -15,7 +15,6 @@ export class ValidationUtils {
             if (!this.validateField(validations[i].element, validations[i].options)) {
                 isValid = false;
             }
-            console.log(validations[i]);
         }
         return isValid;
     }

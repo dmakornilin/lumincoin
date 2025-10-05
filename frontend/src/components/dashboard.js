@@ -1,25 +1,30 @@
 import config from "../config/config.js";
 import {HttpUtils} from "../utils/http-utils.js";
+// import {AuthUtils} from '../utils/auth-utils.js';
+import {AuthUtils} from "../utils/auth-util.js";
 import {SystemUtils} from "../utils/system-utils.js";
 
-// import * as name from "../../node_modules/chart.js/dist/chart.js";
 
 
 export class Dashboard {
     constructor(openNewRoute, navElement) {
         this.openNewRoute = openNewRoute;
-        this.navElement = navElement;
-        this.initial();
-
-
-        this.income = [];
-        this.cost = [];
-
-        this.loadData().then();
+        if (!AuthUtils.isLogin()) {
+            this.openNewRoute('/login');
+        } else {
+            this.navElement = navElement;
+            this.initial();
+            this.income = [];
+            this.cost = [];
+            this.loadData().then();
+        }
 
     }
 
     async loadData() {
+
+
+
         //   очищаю пред значения
         SystemUtils.clearArray(this.income);
         SystemUtils.clearArray(this.cost);
@@ -43,8 +48,6 @@ export class Dashboard {
             {group: 'Счета`', amount: 11200},
             {group: 'Спорт`', amount: 8300}
         ]
-
-
         await this.startChart().then();
     }
 

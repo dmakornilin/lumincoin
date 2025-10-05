@@ -15,6 +15,8 @@ import {PlIncomeAdd} from "./components/finance/pl/pl-income-add.js";
 import {PlCostAdd} from "./components/finance/pl/pl-cost-add.js";
 import {PlIncomeEdit} from "./components/finance/pl/pl-income-edit.js";
 import {PlCostEdit} from "./components/finance/pl/pl-cost-edit.js";
+import {HttpUtils} from "./utils/http-utils.js";
+import {NumberUtils} from "./utils/number-utils.js";
 
 
 export class Router {
@@ -22,16 +24,24 @@ export class Router {
         this.titlePageElement = document.getElementById('title');
         this.contentPageElement = document.getElementById('content');
         this.admiLteStyleElement = document.getElementById('adminlte_style');
-        this.userName = null;
+        // this.userName = null;
 
         this.categoryNavElement = null;
         this.categoryInomeNavElement = null;
         this.categoryCostNavElement = null;
         this.incomeNavBottom = null;
         this.categoryAccordionElement = null;
+        this.balanceElement = null;
 
-        this.plNavElement=null;
-        this.startChoiceElement=null;
+        this.plNavElement = null;
+        this.startChoiceElement = null;
+
+        this.params = {
+            currentCostCtg: null,
+            costCategory: null,
+            currentIncomeCtg: null,
+            incomeCategory: null,
+        }
 
 
         this.initEvents();
@@ -42,7 +52,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/dashboard.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Dashboard(this.openNewRoute.bind(this),this.startChoiceElement);
+                    new Dashboard(this.openNewRoute.bind(this), this.startChoiceElement);
                 },
             },
             {
@@ -72,7 +82,8 @@ export class Router {
                 filePathTemplate: '/templates/pages/auth/sign-up.html',
                 useLayout: false,
                 load: () => {
-                    const signUpApp = new SignUp(this.openNewRoute.bind(this));                },
+                    const signUpApp = new SignUp(this.openNewRoute.bind(this));
+                },
             },
             {
                 route: '/finance-pl',
@@ -80,7 +91,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/pl/show.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new FinancePl(this.openNewRoute.bind(this),this.plNavElement);
+                    new FinancePl(this.openNewRoute.bind(this), this.plNavElement);
                 },
             },
             {
@@ -89,7 +100,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/pl/add-income.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new PlIncomeAdd(this.openNewRoute.bind(this),this.plNavElement);
+                    new PlIncomeAdd(this.openNewRoute.bind(this), this.plNavElement);
                 },
             },
             {
@@ -98,7 +109,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/pl/edit-income.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new PlIncomeEdit(this.openNewRoute.bind(this),this.plNavElement);
+                    new PlIncomeEdit(this.openNewRoute.bind(this), this.plNavElement);
                 },
             },
             {
@@ -107,7 +118,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/pl/add-cost.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new PlCostAdd(this.openNewRoute.bind(this),this.plNavElement);
+                    new PlCostAdd(this.openNewRoute.bind(this), this.plNavElement);
                 },
             },
             {
@@ -116,7 +127,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/pl/edit-cost.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new PlCostEdit(this.openNewRoute.bind(this),this.plNavElement);
+                    new PlCostEdit(this.openNewRoute.bind(this), this.plNavElement);
                 },
             },
             {
@@ -125,7 +136,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/income/category_show.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Incoms(this.openNewRoute.bind(this),this.categoryNavElement,this.categoryAccordionElement,this.categoryInomeNavElement,this.incomeNavBottom);
+                    new Incoms(this.openNewRoute.bind(this), this.categoryNavElement, this.categoryAccordionElement, this.categoryInomeNavElement, this.incomeNavBottom, this.params);
                 },
             },
             {
@@ -134,7 +145,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/income/add.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new AddIncomeCategory(this.openNewRoute.bind(this),this.categoryNavElement,this.categoryAccordionElement,this.categoryInomeNavElement,this.incomeNavBottom);
+                    new AddIncomeCategory(this.openNewRoute.bind(this), this.categoryNavElement, this.categoryAccordionElement, this.categoryInomeNavElement, this.incomeNavBottom);
                 },
             },
             {
@@ -143,7 +154,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/income/edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new EditIncomeCategory(this.openNewRoute.bind(this),this.categoryNavElement,this.categoryAccordionElement,this.categoryInomeNavElement,this.incomeNavBottom);
+                    new EditIncomeCategory(this.openNewRoute.bind(this), this.categoryNavElement, this.categoryAccordionElement, this.categoryInomeNavElement, this.incomeNavBottom, this.params);
                 },
             },
             {
@@ -152,7 +163,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/cost/category_show.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Costs(this.openNewRoute.bind(this),this.categoryNavElement,this.categoryAccordionElement,this.categoryCostNavElement,this.incomeNavBottom);
+                    new Costs(this.openNewRoute.bind(this), this.categoryNavElement, this.categoryAccordionElement, this.categoryCostNavElement, this.incomeNavBottom, this.params);
                 },
             },
             {
@@ -161,7 +172,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/cost/add.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new AddCostCategory(this.openNewRoute.bind(this),this.categoryNavElement,this.categoryAccordionElement,this.categoryCostNavElement,this.incomeNavBottom);
+                    new AddCostCategory(this.openNewRoute.bind(this), this.categoryNavElement, this.categoryAccordionElement, this.categoryCostNavElement, this.incomeNavBottom);
                 },
             },
             {
@@ -170,7 +181,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/finance/cost/edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new EditCostCategory(this.openNewRoute.bind(this),this.categoryNavElement,this.categoryAccordionElement,this.categoryCostNavElement,this.incomeNavBottom);
+                    new EditCostCategory(this.openNewRoute.bind(this), this.categoryNavElement, this.categoryAccordionElement, this.categoryCostNavElement, this.incomeNavBottom, this.params);
                 },
             },
 
@@ -307,33 +318,13 @@ export class Router {
 
                 if (newRoute.useLayout) {
                     this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
+
+
                     contentBlock = document.getElementById('content-layout');
                     document.body.classList.add('sidebar-mini');
                     document.body.classList.add('layout-fixed');
 
-
-                    this.categoryNavElement=document.getElementById('menu-category');
-                    this.categoryAccordionElement=document.getElementById('item-1');
-                    this.categoryInomeNavElement=document.getElementById('list-incoms');
-                    this.incomeNavBottom=document.getElementById('income-nav-bottom');
-                    this.categoryCostNavElement=document.getElementById('list-costs');
-                    this.plNavElement=document.getElementById('finance-pl');
-                    this.startChoiceElement=document.getElementById('start-choice');
-                    this.sbrosChoiceNav(); // убираю выделение nav
-
-                    let currentUser = {id: '', name: ''}
-                    if (!this.userName) {
-                        currentUser = JSON.parse(AuthUtils.getAuthInfo(AuthUtils.userInfoKey));
-                        if (currentUser && currentUser.name) {
-                            this.userName = currentUser.name;
-                        }
-                    }
-
-                     // this.profileNameElement = document.getElementById('current-user');
-                     // this.profileNameElement.innerText = ' ' + this.userName;
-
-
-                    this.activateMenuItem(newRoute);
+                    await this.iniLoad();
 
                 } else {
                     document.body.classList.remove('sidebar-mini');
@@ -354,19 +345,27 @@ export class Router {
         }
     }
 
-
-    activateMenuItem(route) {
-        // document.querySelectorAll('.sidebar .nav-link').forEach(item => {
-        //     const href = item.getAttribute('href');
-        //     if ((route.route.includes(href) && href !== '/') || (route.route === '/' && href === '/')) {
-        //         item.classList.add('active');
-        //     } else {
-        //         item.classList.remove('active');
-        //     }
-        // })
-
+    async showBalance() {
+        if (this.balanceElement) {
+            const result = await HttpUtils.request('/balance');
+            this.balanceElement.innerText = NumberUtils.numberToStringWithThDiv(result.response.balance) + '$';
+        }
     }
 
+    async iniLoad() {
+        this.categoryNavElement = document.getElementById('menu-category');
+        this.categoryAccordionElement = document.getElementById('item-1');
+        this.categoryInomeNavElement = document.getElementById('list-incoms');
+        this.incomeNavBottom = document.getElementById('income-nav-bottom');
+        this.categoryCostNavElement = document.getElementById('list-costs');
+        this.plNavElement = document.getElementById('finance-pl');
+        this.startChoiceElement = document.getElementById('start-choice');
+        this.balanceElement = document.getElementById('balance-amount');
+        this.sbrosChoiceNav(); // убираю выделение nav
+        if (this.balanceElement) {
+            await this.showBalance();
+        }
+    }
 
 
 }

@@ -1,22 +1,30 @@
 import {ValidationUtils} from "../../../utils/validation-utils";
+import {AuthUtils} from "../../../utils/auth-util";
 
 export class EditCostCategory {
-    constructor(openNewRoute, navElement,accElement,navChoice,navBottom) {
+    constructor(openNewRoute, navElement, accElement, navChoice, navBottom, params) {
         this.openNewRoute = openNewRoute;
-        this.CategoryName = document.getElementById("add-name");
+        if (!AuthUtils.isLogin()) {
+            this.openNewRoute('/login');
+        } else {
+            this.CategoryName = document.getElementById("add-name");
+            this.navElement = navElement;
+            this.accElement = accElement;
+            this.navChoice = navChoice;
+            this.navBottom = navBottom;
+            this.params = params;
 
-        this.navElement = navElement;
-        this.accElement = accElement;
-        this.navChoice = navChoice;
-        this.navBottom = navBottom;
-        this.initial();
+
+            this.initial();
+            this.CategoryName.value = this.params.costCategory;
 
 
-        this.validations = [
-            {element: this.CategoryName}
-        ]
+            this.validations = [
+                {element: this.CategoryName}
+            ]
 
-        document.getElementById("update-category").addEventListener("click", this.addCategory.bind(this));
+            document.getElementById("update-category").addEventListener("click", this.addCategory.bind(this));
+        }
     }
 
     async addCategory() {

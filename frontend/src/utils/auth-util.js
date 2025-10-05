@@ -1,3 +1,6 @@
+import config from '../config/config.js';
+
+
 export class AuthUtils {
     static accessTokenKey = 'accessToken';
     static refreshTokenKey = 'refreshToken';
@@ -15,6 +18,20 @@ export class AuthUtils {
         localStorage.removeItem(this.accessTokenKey);
         localStorage.removeItem(this.refreshTokenKey);
         localStorage.removeItem(this.userInfoKey);
+    }
+
+
+    static isLogin() {
+         let result = true;
+         if (!localStorage.getItem(this.accessTokenKey)) { result = false; }
+         else {
+             if (!localStorage.getItem(this.refreshTokenKey))
+             { result = false; } else {
+                 if (!localStorage.getItem(this.userInfoKey)) {result = false; }
+             }
+         }
+
+         return result;
     }
 
     static getAuthInfo(key = null) {
@@ -42,12 +59,14 @@ export class AuthUtils {
                 body: JSON.stringify({refreshToken: refreshToken,})
             });
             if (response && response.status === 200) {
+                // console.log(response);
                 const tokens = await response.json();
                 if (tokens && !tokens.error) {
                     this.setAuthInfo(tokens.accessToken, tokens.refreshToken);
                     result = true;
                     return result;
                 }
+
             }
         }
         if (!result) { this.removeAuthInfo()}

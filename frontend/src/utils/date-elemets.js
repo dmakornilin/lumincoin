@@ -12,4 +12,12 @@ export class DateElements{
         return result;
     }
 
+
+    static dtStrToString(dt){
+        const parts = dt.split("-");
+        let result=parts[2]+'.'+parts[1]+'.'+parts[0];
+        return result;
+
+    }
+
 }

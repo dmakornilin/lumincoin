@@ -22,7 +22,7 @@ export class HttpUtils {
         if (useAuth) {
             token = AuthUtils.getAuthInfo(AuthUtils.accessTokenKey);
             if (token) {
-                params.headers['authorization'] = token;
+                params.headers['x-auth-token'] = token;
             }
         }
 
@@ -56,6 +56,7 @@ export class HttpUtils {
         }
 
         if (response.status < 200 || response.status > 299) {
+            result.redirect = '/login';
             result.error = true;
         }
 

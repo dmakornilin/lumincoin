@@ -3,10 +3,16 @@ body {
   max-width: 1920px;
   overflow: hidden;
 }
+
+table, tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
 .content-wrapper{
   height: 100vh;
   overflow: auto;
 }
+
 
 .leftnav-border-color {
   border-color: #052c65;
@@ -44,11 +50,27 @@ body {
   margin-top: 40px;
 }
 
+.div-login-layout {
+  width: 170px !important;
+}
+
 .bottom-otstup-20 {
   padding-bottom: 20px;
 }
 
+.pad-top-20 {
+  padding-top: 20px;
+}
+
+.pad-top-10 {
+  padding-top: 10px;
+}
+
 .left-10 {
+  padding-left: 10px
+}
+
+.left-20 {
   padding-left: 10px
 }
 

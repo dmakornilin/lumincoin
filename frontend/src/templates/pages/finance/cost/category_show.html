@@ -1,135 +1,22 @@
-<div class="container px-4 py-4">
+<div class="container py-4">
     <div class="pricing-header p-3 pb-md-4 mx-auto menu-font-color">
         <h1>Расходы</h1>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 mb-3">
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Еда</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Жильё</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Здоровье</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Кафе</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Авто</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Одежда</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Развлечения</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Счета</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 rounded-3  group-block-height">
-                <div class="card-header border-0 py-3 bg-body">
-                    <h4 class="my-0 fw-normal text-group-color">Спорт</h4>
-                    <div class="d-flex py-2 gap-2">
-                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#removeGroup">
-                            Удалить
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <div class="row row-cols-1 row-cols-md-3 mb-3" id="category-container">
+<!--        <div class="col">-->
+<!--            <div class="card mb-4 rounded-3  group-block-height">-->
+<!--                <div class="card-header border-0 py-3 bg-body">-->
+<!--                    <h4 class="my-0 fw-normal text-group-color">Еда</h4>-->
+<!--                    <div class="d-flex py-2 gap-2">-->
+<!--                        <a href="/cost/edit" class="btn btn-block btn-primary">Редактировать</a>-->
+<!--                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"-->
+<!--                                data-bs-target="#removeGroup">-->
+<!--                            Удалить-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="col" id="to-add-category">
             <div class="col rounded-3 ">
                 <a href="/cost/add" class="text-decoration-none">
