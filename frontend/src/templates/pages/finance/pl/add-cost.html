@@ -5,23 +5,16 @@
     <div class="card-body">
         <div class="row mb-3">
             <div class="col-sm-6 ">
-                <select class="form-select">
+                <select class="form-select" id="form-select">
                     <option value="1" selected>Расход</option>
                 </select>
+                <span id="form-select-error"
+                      class="error invalid-feedback ">Неправильные параметры операции</span>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-sm-6">
                 <select class="form-select" id="categ-select">
-                    <option value="1" selected>Еда</option>
-                    <option value="2">Жильё</option>
-                    <option value="3">Здоровье</option>
-                    <option value="4">Кафе</option>
-                    <option value="5">Авто</option>
-                    <option value="6">Одежда</option>
-                    <option value="7">Развлечения</option>
-                    <option value="8">Счета</option>
-                    <option value="9">Спорт</option>
                 </select>
                 <span id="categ-select-error"
                       class="error invalid-feedback ">Выберите категорию расхода</span>

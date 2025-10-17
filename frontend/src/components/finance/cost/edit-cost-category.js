@@ -1,26 +1,18 @@
-import {ValidationUtils} from "../../../utils/validation-utils";
-import {AuthUtils} from "../../../utils/auth-util";
+import {AuthUtils} from "../../../utils/auth-util.js";
+import {HttpUtils} from "../../../utils/http-utils.js";
+import {ValidationUtils} from "../../../utils/validation-utils.js";
 
 export class EditCostCategory {
-    constructor(openNewRoute, navElement, accElement, navChoice, navBottom, params) {
+    constructor(openNewRoute, commonParams) {
         this.openNewRoute = openNewRoute;
         if (!AuthUtils.isLogin()) {
             this.openNewRoute('/login');
         } else {
-            this.CategoryName = document.getElementById("add-name");
-            this.navElement = navElement;
-            this.accElement = accElement;
-            this.navChoice = navChoice;
-            this.navBottom = navBottom;
-            this.params = params;
-
-
+            this.categoryName = document.getElementById("add-name");
+            this.commonParams = commonParams;
             this.initial();
-            this.CategoryName.value = this.params.costCategory;
-
-
             this.validations = [
-                {element: this.CategoryName}
+                {element: this.categoryName}
             ]
 
             document.getElementById("update-category").addEventListener("click", this.addCategory.bind(this));
@@ -30,24 +22,26 @@ export class EditCostCategory {
     async addCategory() {
         if (ValidationUtils.validateForm(this.validations)) {
             console.log('Прошел валидацию');
+            if (ValidationUtils.validateForm(this.validations)) {
+                const result = await HttpUtils.request('/categories/expense/' + this.commonParams.currents.currentCostCtg, 'PUT', true,
+                    {
+                        title: this.categoryName.value,
+                    });
+                if (result.error) {
+                    this.categoryName.classList.add('is-invalid');
+                    return;
+                } else {
+                    this.openNewRoute('/costs');
+                }
+            }
         }
     }
 
     initial() {
-        if (this.navElement) {
-            this.navElement.classList.add("border-ramka");
-        }
-        if (this.accElement) {
-            this.accElement.classList.remove("collapse");
-        }
-        if (this.navChoice) {
-            this.navChoice.classList.add("active");
-        }
-        if (this.navBottom) {
-            this.navBottom.classList.remove("rounded-2");
-            this.navBottom.classList.remove("rounded-0");
-            this.navBottom.classList.add("rounded-0");
-            this.navBottom.dispatchEvent(new Event('click'))
+        if (this.commonParams) {
+            this.categoryName.value = this.commonParams.currents.costCategory;
+            this.commonParams.setCtgCost();
+            this.commonParams.navElements.incomeNavBottom.dispatchEvent(new Event('click'))
         }
     }
 }

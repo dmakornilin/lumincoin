@@ -1,4 +1,4 @@
-<div class="container px-4 py-4">
+<div class="px-4 py-4">
     <div class="pricing-header p-3 pb-md-4 mx-auto menu-font-color">
         <h1 class="text-primary-emphasis">Главная</h1>
     </div>
@@ -6,49 +6,67 @@
     <nav class="navbar navbar-expand-lg h-100">
         <div class="container-fluid">
             <div>
-<!--            <div class="collapse navbar-collapse">-->
+                <!--            <div class="collapse navbar-collapse">-->
                 <ul class="nav nav-pills nav-fill">
                     <div class="d-flex">
                         <div class="d-flex">
                             <li class="nav-item">
+                                <!--                                btn-secondary                                -->
                                 <button type="button"
-                                        class="btn border border-secondary navbar-button-width btn-secondary">
+                                        class="btn border border-secondary navbar-button-width btn-secondary" choice-flag="0"
+                                        id="gl-flag-0">
                                     Сегодня
                                 </button>
                             </li>
                             <li class="nav-item">
                                 <span class="navbar-menu-left-gap"></span>
-                                <button type="button" class="btn border border-secondary navbar-button-width ">Неделя
+                                <button type="button" class="btn border border-secondary navbar-button-width"
+                                        choice-flag="1" id="gl-flag-1">Неделя
                                 </button>
                             </li>
                             <li class="nav-item">
                                 <span class="navbar-menu-left-gap"></span>
-                                <button type="button" class="btn border border-secondary navbar-button-width ">Месяц
+                                <button type="button" class="btn border border-secondary navbar-button-width"
+                                        choice-flag="2" id="gl-flag-2">Месяц
                                 </button>
                             </li>
                             <li class="nav-item">
                                 <span class="navbar-menu-left-gap"></span>
-                                <button type="button" class="btn border border-secondary navbar-button-width ">Год
+                                <button type="button" class="btn border border-secondary navbar-button-width"
+                                        choice-flag="3" id="gl-flag-3">Год
                                 </button>
                             </li>
                             <li class="nav-item">
                                 <span class="navbar-menu-left-gap"></span>
-                                <button type="button" class="btn border border-secondary navbar-button-width ">Все
+                                <button type="button" class="btn border border-secondary navbar-button-width"
+                                        choice-flag="4" id="gl-flag-4">Все
                                 </button>
                             </li>
 
                         </div>
                         <li>
                             <form class="d-flex">
+                                <div>
                                 <span class="navbar-menu-left-gap"></span>
-                                <button type="button" class="btn border border-secondary navbar-button-width ">
+                                <button type="button" class="btn border border-secondary navbar-button-width"
+                                        choice-flag="5" id="gl-flag-5">
                                     Интервал
                                 </button>
+                                </div>
                                 <div class="px-2 pt-2">c</div>
-                                <div><input type="date" class="form-control" placeholder="Дата" aria-label="Search">
+                                <div>
+                                    <input type="date" class="form-control is-invalid" placeholder="Дата"
+                                           aria-label="Search" id="gl-date-from">
+                                    <span id="gl-date-from-error"
+                                          class="error invalid-feedback">Введите дату</span>
                                 </div>
                                 <div class="px-2 pt-2">по</div>
-                                <input class="form-control" type="date" placeholder="Дата">
+                                <div>
+                                    <input class="form-control is-invalid" type="date" placeholder="Дата"
+                                           aria-label="Search" id="gl-date-to">
+                                    <span id="gl-date-to-error"
+                                          class="error invalid-feedback">Введите дату</span>
+                                </div>
                             </form>
                         </li>
                     </div>
@@ -58,23 +76,25 @@
 
     </nav>
 
-    <section>
-        <div class="container d-flex justify-content-between">
-            <div class="row w-100 ">
-                <div class="col-6 ">
-                    <div class="pricing-header p-3 pb-md-4 mx-auto menu-font-color text-center">
+    <section class="pad-top-100">
+        <div class="d-flex">
+            <!--            justify-content-between-->
+            <div class="row">
+                <div class="width-480">
+                    <!--                    <div class="pricing-header p-3 pb-md-4 mx-auto menu-font-color text-center">-->
+                    <div class="pricing-header mx-auto menu-font-color text-center">
                         <h4 class="text-primary-emphasis">Доходы</h4>
                     </div>
-                    <div class="right-vertical-line">
+                    <div class="right-vertical-line w-100">
                         <canvas id="income-pie"></canvas>
                     </div>
                 </div>
 
-                <div class="col-6  ">
-                    <div class="pricing-header p-3 pb-md-4 mx-auto menu-font-color  text-center">
+                <div class="width-480">
+                    <div class="pricing-header mx-auto menu-font-color  text-center">
                         <h4 class="text-primary-emphasis">Расходы</h4>
                     </div>
-                    <div class="border-left border-secondary p-3 ">
+                    <div class="border-left border-secondary w-100">
                         <canvas id="cost-pie"></canvas>
                     </div>
                 </div>

@@ -1,45 +1,35 @@
 import {AuthUtils} from "../../utils/auth-util.js";
 import {HttpUtils} from "../../utils/http-utils.js";
 
-
 export class Incoms {
-    constructor(openNewRoute, navElement, accElement, navChoice, navBottom, params) {
+    constructor(openNewRoute, commonParams) {
         this.openNewRoute = openNewRoute;
         if (!AuthUtils.isLogin()) {
             this.openNewRoute('/login');
         } else {
-            this.navElement = navElement;
-            this.accElement = accElement;
-            this.navChoice = navChoice;
-            this.navBottom = navBottom;
+            this.commonParams = commonParams;
             this.ctgContainer = document.getElementById("category-container");
-            this.params = params;
+
+             document.getElementById("to-delete-category").addEventListener("click", this.choiceDelCategory.bind(this));
+
+
+
             this.initial();
             return this.loadData();
         }
     }
 
+
+
     initial() {
-        if (this.navElement) {
-            this.navElement.classList.add("border-ramka");
-        }
-        if (this.accElement) {
-            this.accElement.classList.remove("collapse");
-        }
-        if (this.navChoice) {
-            this.navChoice.classList.add("active");
-        }
-        if (this.navBottom) {
-            this.navBottom.classList.remove("rounded-2");
-            this.navBottom.classList.remove("rounded-0");
-            this.navBottom.classList.add("rounded-0");
-            this.navBottom.dispatchEvent(new Event('click'))
+        if (this.commonParams) {
+            this.commonParams.setCtgIncome();
+            this.commonParams.navElements.incomeNavBottom.dispatchEvent(new Event('click'))
         }
     }
 
     showCategories(ctgList) {
         let ctgElement = null;
-
         for (let i = ctgList.length-1; i >= 0; i--) {
             ctgElement = ctgList[i];
             if (ctgElement.id && ctgElement.title) {
@@ -70,7 +60,6 @@ export class Incoms {
                 div1Element.appendChild(divFlexElement);
 
                 const hrefEditElement = document.createElement('span');
-                // hrefEditElement.href ='/income/edit';
                 hrefEditElement.classList.add('btn');
                 hrefEditElement.classList.add('btn-block');
                 hrefEditElement.classList.add('btn-primary');
@@ -88,8 +77,13 @@ export class Incoms {
                 btnDelElement.setAttribute('data-bs-toggle', 'modal');
                 btnDelElement.setAttribute('data-bs-target', '#removeGroup');
                 btnDelElement.setAttribute('choice-ctg-id', ctgElement.id);
+                btnDelElement.setAttribute('choice-ctg-name', ctgElement.title);
                 btnDelElement.innerText='Удалить';
+                btnDelElement.addEventListener('click', this.toDeleteCategory.bind(this));
+
+
                 divFlexElement.appendChild(btnDelElement);
+
 
                 this.ctgContainer.prepend(currentColElement);
             }
@@ -98,13 +92,32 @@ export class Incoms {
     }
 
 
+   async choiceDelCategory(element) {
+       if (this.commonParams.currents.currentIncomeCtg) {
+           const result = await HttpUtils.request('/categories/income/' + this.commonParams.currents.currentIncomeCtg, 'DELETE');
+           await this.openNewRoute('/incoms');
+       }
+    }
+
+
+    toDeleteCategory(element) {
+        const choiceCtg=element.srcElement.getAttribute('choice-ctg-id');
+        const choiceCtgName=element.srcElement.getAttribute('choice-ctg-name');
+        if (choiceCtg) {
+            this.commonParams.currents.currentIncomeCtg=choiceCtg;
+            this.commonParams.currents.incomeCategory=choiceCtgName;
+        }
+    }
+
+
+
     toEditCategory(element) {
          const choiceCtg=element.srcElement.getAttribute('choice-ctg-id');
          const choiceCtgName=element.srcElement.getAttribute('choice-ctg-name');
 
         if (choiceCtg && choiceCtgName) {
-            this.params.currentIncomeCtg=choiceCtg;
-            this.params.incomeCategory=choiceCtgName;
+            this.commonParams.currents.currentIncomeCtg=choiceCtg;
+            this.commonParams.currents.incomeCategory=choiceCtgName;
             this.openNewRoute('/income/edit');
         }
 
@@ -112,9 +125,9 @@ export class Incoms {
 
     async  loadData()
     {
-        const result = await HttpUtils.request('/categories/income');
-        await this.showCategories(result.response);
-
+        await this.commonParams.reloadIncomeCategories();
+        // const result = await HttpUtils.request('/categories/income');
+        await this.showCategories(this.commonParams.categories.incomeCategories);
     }
 
 }

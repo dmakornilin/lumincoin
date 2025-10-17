@@ -1,9 +1,3 @@
-
-body {
-  max-width: 1920px;
-  overflow: hidden;
-}
-
 table, tr {
   border-bottom: 1px solid #dee2e6;
 }
@@ -13,6 +7,9 @@ table, tr {
   overflow: auto;
 }
 
+.width-480 {
+  width: 480px !important;
+}
 
 .leftnav-border-color {
   border-color: #052c65;
@@ -24,6 +21,12 @@ table, tr {
 
 .login-page-width {
   width: 400px;
+}
+
+.login-width {
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 145px !important;
 }
 
 .text-group-color {
@@ -64,6 +67,10 @@ table, tr {
 
 .pad-top-10 {
   padding-top: 10px;
+}
+
+.pad-top-100 {
+  padding-top: 100px;
 }
 
 .left-10 {
